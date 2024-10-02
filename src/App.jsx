@@ -1,25 +1,40 @@
-import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import Scene from "./scene";
+import "./App.css";
+import { Suspense, useEffect, useState } from "react";
+import { Html } from "@react-three/drei";
+import axios from "axios";
 
-const FirstGeometry = () => {
-  return (
-    <mesh>
-      <boxGeometry  args={[3,2,2]}/>
-      <meshStandardMaterial />
-    </mesh>
-  )
-}
 
 const App = () => {
-  return (
-    <Canvas style = {{ height: "100vh", width: "100vw", display:"flex", justifyContent:"center", alignItems:"center" }}>
-      <OrbitControls enableZoom enablePan enableRotate />
-      <directionalLight position={[3,2,1]} intensity={10} color={0x9CDBA6} />
-      <color attach="background" args={["#F0F0F0"]} />
+  const [catFact, setCatFact] = useState("");
+  
+  useEffect(() => {
+    async function fetchCatFact() {
+      try {
+        const response = await axios.get("https://cat-fact.herokuapp.com/facts/random");
+        console.log(response)
+        setCatFact(response.data.text);
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-      <FirstGeometry />
+    fetchCatFact();
+  }, []);
+
+  return (
+    <Canvas id="canvas-container">
+      <Html>
+        <div id="fetch-container">
+          {catFact ? <p>{catFact}</p> : <p>Loading...</p>}
+        </div>
+      </Html>
+      <Suspense fallback={null}>
+        <Scene />
+      </Suspense>
     </Canvas>
-  )
-}
+  );
+};
 
 export default App;
