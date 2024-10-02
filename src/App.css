@@ -1,3 +1,9 @@
+ html {
+  margin: 0;
+  height: 100%;
+  background-color: #6c757d;
+}
+
 #canvas-container {
   height: 100vh !important;
   background-color: #6c757d;
@@ -6,5 +12,3 @@
 #fetch-container {
   background-color: whitesmoke;
 }
-
-

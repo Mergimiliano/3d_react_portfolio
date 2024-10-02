@@ -30,7 +30,7 @@ const App = () => {
           {catFact ? <p>{catFact}</p> : <p>Loading...</p>}
         </div>
       </Html>
-      <Suspense fallback={null}>
+      <Suspense fallback={null}> 
         <Scene />
       </Suspense>
     </Canvas>
