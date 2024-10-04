@@ -24,12 +24,8 @@ const App = () => {
   }, []);
 
   return (
-    <Canvas id="canvas-container">
-      <Html>
-        <div id="fetch-container">
-          {catFact ? <p>{catFact}</p> : <p>Loading...</p>}
-        </div>
-      </Html>
+    <Canvas id="canvas-container" shadows>
+
       <Suspense fallback={null}> 
         <Scene />
       </Suspense>

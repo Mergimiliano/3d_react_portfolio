@@ -4,24 +4,13 @@ import { useRef } from "react";
 import { MathUtils } from "three";
 
 const Scene = () => {
-  
   const orbitControlsRef = useRef(null);
-  const azimuthalTarget = useRef(0);
-  const polarTarget = useRef(MathUtils.degToRad(70));
 
   useFrame((state) => {
     if (!!orbitControlsRef.current) {
-      const { x, y } = state.pointer;
-
-      azimuthalTarget.current = -MathUtils.degToRad(x * 5);
-      polarTarget.current = MathUtils.mapLinear(y * 0.25, -1, 1, MathUtils.degToRad(80), MathUtils.degToRad(60));
-
-      const currentAzimuthal = orbitControlsRef.current.getAzimuthalAngle();
-      const currentPolar = orbitControlsRef.current.getPolarAngle();
-
-      orbitControlsRef.current.setAzimuthalAngle(MathUtils.lerp(currentAzimuthal, azimuthalTarget.current, 0.1));
-      orbitControlsRef.current.setPolarAngle(MathUtils.lerp(currentPolar, polarTarget.current, 0.1));
-      
+      const { x } = state.pointer;
+      orbitControlsRef.current.setPolarAngle(MathUtils.degToRad(75));
+      orbitControlsRef.current.setAzimuthalAngle(x * 0.25);
       orbitControlsRef.current.update();
     }
   });
@@ -29,17 +18,19 @@ const Scene = () => {
   return (
     <>
       <PerspectiveCamera makeDefault position={[0, 1, 5]} />
-      <OrbitControls ref={orbitControlsRef} minPolarAngle={MathUtils.degToRad(60)} maxPolarAngle={MathUtils.degToRad(80)} />
+      <OrbitControls ref={orbitControlsRef} />
 
-      <Sphere args={[0.5, 32, 32]} position={[0, 0.5, 0]}>
+      <Sphere args={[0.5, 32, 32]} position={[0, 0.5, 0]} castShadow>
         <meshStandardMaterial color={"#FFD100"} />
       </Sphere>
 
-      <Plane args={[7, 7]} rotation={[-MathUtils.degToRad(90), 0, 0]}>
-        <meshStandardMaterial color={"#202020"} />
+      <Plane args={[10, 7]} rotation={[-MathUtils.degToRad(90), 0, 0]} receiveShadow>
+        <meshStandardMaterial color={"#00a6fb"} />
       </Plane>
 
-      <ambientLight args={["#ffffff", 1]} />
+      <ambientLight args={["#ffffff", 0.25]} />
+
+      <spotLight castShadow args={["#ffffff", 10, 20, MathUtils.degToRad(45), 0.4]} position={[-3, 3, 0]} />
     </>
   );
 };
