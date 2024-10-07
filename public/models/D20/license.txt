@@ -1,0 +1,11 @@
+Model Information:
+* title:	Starter D20
+* source:	https://sketchfab.com/3d-models/starter-d20-fc8a52a6d41e47128554e215c93327f8
+* author:	InternetHumor (https://sketchfab.com/InternetHumor)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Starter D20" (https://sketchfab.com/3d-models/starter-d20-fc8a52a6d41e47128554e215c93327f8) by InternetHumor (https://sketchfab.com/InternetHumor) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
