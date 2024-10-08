@@ -10,7 +10,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export default function D20(props) {
-  const { nodes, materials } = useGLTF('models/d20/D20.gltf')
+  const { nodes, materials } = useGLTF('models/D20/D20.gltf')
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -25,6 +25,6 @@ export default function D20(props) {
   )
 }
 
-useGLTF.preload('models/d20/D20.gltf')
+useGLTF.preload('models/D20/D20.gltf')
 
 
