@@ -2,7 +2,7 @@ import { Environment, OrbitControls, PerspectiveCamera, Plane, Sphere } from "@r
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { MathUtils } from "three";
-import D20 from "./components/d20";
+import D20 from "./d20";
 
 const Scene = () => {
   const orbitControlsRef = useRef(null);

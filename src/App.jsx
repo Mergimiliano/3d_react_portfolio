@@ -1,38 +1,16 @@
-import { Canvas } from "@react-three/fiber";
-import Scene from "./scene";
 import "./App.css";
-import { Suspense, useEffect, useState } from "react";
-import { Html } from "@react-three/drei";
-import axios from "axios";
-
 
 const App = () => {
-  const [catFact, setCatFact] = useState("");
-  
-  useEffect(() => {
-    async function fetchCatFact() {
-      try {
-        const response = await axios.get("https://cat-fact.herokuapp.com/facts/random");
-        setCatFact(response.data.text);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    fetchCatFact();
-  }, []);
-
   return (
-    <Canvas id="canvas-container" shadows>
-      <Html>
-        <div id="fetch-container">
-          {catFact ? <p>{catFact}</p> : <p>Loading...</p>}
-        </div>
-      </Html>
-      <Suspense fallback={null}> 
-        <Scene />
-      </Suspense>
-    </Canvas>
+    <>
+    <main className="max-w-7xl mx-auto">
+    <div className="text-white text-2xl">
+      <h1 className="leading-heading">This is a heading</h1>
+        <h1>This is a sub-heading</h1>
+        <p className="leading-body">This is a paragraph with a line-height of 1.5.</p>
+    </div>
+    </main>
+    </>
   );
 };
 

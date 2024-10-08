@@ -6,3 +6,8 @@ Author: InternetHumor (https://sketchfab.com/InternetHumor)
 License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/starter-d20-fc8a52a6d41e47128554e215c93327f8
 Title: Starter D20
+
+
+NOTES:
+
+Donwload the font? https://www.cdnfonts.com/satoshi.font
