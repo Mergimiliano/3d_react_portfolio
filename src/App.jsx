@@ -13,7 +13,6 @@ const App = () => {
     async function fetchCatFact() {
       try {
         const response = await axios.get("https://cat-fact.herokuapp.com/facts/random");
-        console.log(response)
         setCatFact(response.data.text);
       } catch (error) {
         console.error(error);
