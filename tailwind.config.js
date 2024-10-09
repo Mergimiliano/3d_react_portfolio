@@ -10,6 +10,11 @@ export default {
         heading: '1.3', 
         body: '1.5',
       },
+      letterSpacing: {
+        'neg05': '-0.005em',
+        'neg1': '-0.01em',
+        'neg2': '-0.02em',
+      },
       colors: {
         black: {
           DEFAULT: '#000',
