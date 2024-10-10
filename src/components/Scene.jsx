@@ -11,25 +11,25 @@ const Scene = () => {
     if (!!orbitControlsRef.current) {
       const { x } = state.pointer;
       orbitControlsRef.current.setPolarAngle(MathUtils.degToRad(75));
-      orbitControlsRef.current.setAzimuthalAngle(x * 0.25);
+      orbitControlsRef.current.setAzimuthalAngle(x * 0.05);
       orbitControlsRef.current.update();
     }
   });
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 1, 5]} />
-      <OrbitControls ref={orbitControlsRef} />
+      <PerspectiveCamera makeDefault position={[0, 1, 13]} />
+      <OrbitControls ref={orbitControlsRef} enableZoom={false} enableRotate={false}/>
 
       <Sphere args={[0.5, 32, 32]} position={[0, 0.5, 0]} castShadow>
         <meshStandardMaterial color={"#FFD100"} metalness={0.6} roughness={0.2}/>
       </Sphere>
 
-      <Plane args={[20, 10]} rotation={[-MathUtils.degToRad(90), 0, 0]} receiveShadow>
+      <Plane args={[24, 8]} rotation={[-MathUtils.degToRad(65), 0, 0]} receiveShadow>
         <meshStandardMaterial color={"#00a6fb"} />
       </Plane>
 
-      <D20></D20>
+      <D20 rotation={[-MathUtils.degToRad(65), 0, 0]} position={[-2,0.35,2]}> </D20>
 
       <ambientLight args={["#ffffff", 0.25]} />
 

@@ -19,7 +19,6 @@ export default function D20(props) {
         geometry={nodes.polySurface1_lambert1_0.geometry}
         material={materials.lambert1}
         scale={0.5}
-        position={[-2,1,2]}
       />
     </group>
   )
